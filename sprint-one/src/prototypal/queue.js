@@ -1,19 +1,11 @@
 var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var instance = {storage: {}, length: 0, counter: 0};
-  extend(instance, Object.create(queueMethods));
-  // var instance = Object.create(queueMethods);
-  // instance.storage = {};
-  // instance.length = 0;
-  // instance.counter = 0;
+  var instance = Object.create(queueMethods);
+  instance.storage = {};
+  instance.length = 0;
+  instance.counter = 0;
   return instance;
-};
-
-var extend = function(original, objects) {
-  for ( var key in objects) {
-    original[key] = objects[key];
-  }
 };
 
 var queueMethods = {
