@@ -8,9 +8,6 @@ var LinkedList = function() {
     if (list.head === null) { // When list is empty
       list.head = node;
       list.tail = node;
-    } else if (list.head === list.tail) { // When list has 1 node
-      list.head.next = node;
-      list.tail = node;
     } else { // When list has more than 1 node
       list.tail.next = node;
       list.tail = node;
@@ -24,15 +21,16 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-
-   
-
-  //   if (list.head.value === target) {
-  //     return true;
-  //   } else {
-
-  //   }
-  // };
+    var found = false;
+    var currentNode = list.head;
+    while ( currentNode !== null && !found) {
+      if (currentNode.value === target) {
+        found = true;
+      } 
+      currentNode = currentNode.next;
+    }
+    return found;
+  };
 
   return list;
 };
